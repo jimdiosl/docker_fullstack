@@ -1,0 +1,16 @@
+******desde "DB"*****
+
+mkdir data
+
+docker build -t db-img .
+    docker run -d -p 3306:3306 -v data:/var/lib/mysql db-img
+
+******desde "BACKEND"*****
+
+docker build -t back-img .
+docker run -d -p 5000:5000 back-img
+
+******desde "FRONT"*****
+
+docker build -t front-img  .
+docker run -d -p 80:80 front-img
